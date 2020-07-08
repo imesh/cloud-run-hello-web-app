@@ -1,4 +1,4 @@
-const {GoogleAuth} = require('google-auth-library');
+const { GoogleAuth } = require('google-auth-library');
 const got = require('got');
 const auth = new GoogleAuth();
 
@@ -38,7 +38,7 @@ async function invokeHelloAPI() {
     } catch (err) {
         const message = 'hello-api could not respond to request: ';
         console.log(message, err.response.body);
-        if(error.response.statusCode === 403) {
+        if (err.response.statusCode === 403) {
             throw Error('403 Forbidden');
         } else {
             throw Error(message, err.response.body);
@@ -53,7 +53,7 @@ const PORT = process.env.PORT || 8080;
 app.get('/', async (req, res) => {
     try {
         console.log('Invoking hello-api...');
-        let response = await invokeHelloAPI(); 
+        let response = await invokeHelloAPI();
         console.log(`hello-api response received: ${JSON.stringify(response)}`);
         res.status(200).send(response);
     } catch (err) {
