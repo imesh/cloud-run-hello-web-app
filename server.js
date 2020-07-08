@@ -38,7 +38,11 @@ async function invokeHelloAPI() {
     } catch (err) {
         const message = 'hello-api could not respond to request: ';
         console.log(message, err.response.body);
-        throw Error(message, err.response.body);
+        if(error.response.statusCode === 403) {
+            throw Error('403 Forbidden');
+        } else {
+            throw Error(message, err.response.body);
+        }
     };
 }
 
