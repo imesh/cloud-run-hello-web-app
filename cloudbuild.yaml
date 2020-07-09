@@ -10,4 +10,4 @@ steps:
   args: ['push', 'gcr.io/gdg-cloud-run/cloud-run-hello-web-app:latest']
   # deploy app on cloud run
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['run' , 'deploy', 'cloud-run-hello-web-app', '--platform', 'managed', '--region', 'us-east1', '--image', 'gcr.io/gdg-cloud-run/cloud-run-hello-web-app:latest', '--set-env-vars', 'HELLO_API_URL=', '--service-account', 'cloud-run-hello-web-app', '--allow-unauthenticated']
+  args: ['run' , 'deploy', 'cloud-run-hello-web-app', '--platform', 'managed', '--region', 'us-east1', '--image', 'gcr.io/gdg-cloud-run/cloud-run-hello-web-app:latest', '--set-env-vars', 'HELLO_API_URL=https://cloud-run-hello-api-zdfryc74pa-ue.a.run.app', '--service-account', 'cloud-run-hello-web-app', '--allow-unauthenticated']
